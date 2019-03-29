@@ -1,0 +1,28 @@
+﻿{
+  "ReRoutes": [
+    /*
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/x",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ServiceName": "WEB-BFF-TRACING",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    }
+    */
+  ],
+  "DynamicReRoutes": [
+    {
+      "ServiceName": "WEB-BFF-TRACING"
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Type": "Eureka"
+    },
+    "DownstreamScheme": "http"
+  }
+
+}
