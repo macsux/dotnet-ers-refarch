@@ -13,11 +13,7 @@
     }
     */
   ],
-  "DynamicReRoutes": [
-    {
-      "ServiceName": "WEB-BFF-TRACING"
-    }
-  ],
+  
   "GlobalConfiguration": {
     "ServiceDiscoveryProvider": {
       "Type": "Eureka"
