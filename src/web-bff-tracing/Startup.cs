@@ -57,7 +57,6 @@ namespace web_bff_tracing
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
             app.UseDiscoveryClient();
         }
     }

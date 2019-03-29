@@ -1,17 +1,15 @@
 ﻿{
   "ReRoutes": [
-    /*
     {
-      "DownstreamPathTemplate": "/",
+      "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/x",
+      "UpstreamPathTemplate": "/x/{url}",
       "UpstreamHttpMethod": [ "Get" ],
       "ServiceName": "WEB-BFF-TRACING",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     }
-    */
   ],
   
   "GlobalConfiguration": {

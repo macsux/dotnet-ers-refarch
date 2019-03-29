@@ -8,12 +8,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Eureka;
-using Pivotal.Discovery.Client;
-//using Steeltoe.Management.CloudFoundry;
-//using Steeltoe.Management.Endpoint;
-//using Steeltoe.Management.Endpoint.Env;
-//using Steeltoe.Management.Endpoint.Refresh;
-//using Steeltoe.Management.Hypermedia;
+using Steeltoe.Management.CloudFoundry;
+using Steeltoe.Management.Endpoint;
+using Steeltoe.Management.Endpoint.Env;
+using Steeltoe.Management.Endpoint.Refresh;
+using Steeltoe.Management.Hypermedia;
 
 namespace gateway
 {
@@ -27,9 +26,9 @@ namespace gateway
         public IConfiguration Configuration { get; }
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-//            services.AddCloudFoundryActuators(Configuration, MediaTypeVersion.V2, ActuatorContext.ActuatorAndCloudFoundry);
-//            services.AddRefreshActuator(Configuration);
-//            services.AddEnvActuator(Configuration);
+            services.AddCloudFoundryActuators(Configuration, MediaTypeVersion.V2, ActuatorContext.ActuatorAndCloudFoundry);
+            services.AddRefreshActuator(Configuration);
+            services.AddEnvActuator(Configuration);
             services.AddOcelot(Configuration)
                 .AddEureka();
             return services.BuildServiceProvider(false);
@@ -37,9 +36,9 @@ namespace gateway
 
         public void Configure(IApplicationBuilder app)
         {
-//            app.UseCloudFoundryActuators(MediaTypeVersion.V2, ActuatorContext.ActuatorAndCloudFoundry);
-//            app.UseRefreshActuator();
-//            app.UseEnvActuator();
+            app.UseCloudFoundryActuators(MediaTypeVersion.V2, ActuatorContext.ActuatorAndCloudFoundry);
+            app.UseRefreshActuator();
+            app.UseEnvActuator();
             app.UseOcelot().Wait();
         }
     }

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-//using Steeltoe.Extensions.Logging;
+using Steeltoe.Extensions.Logging;
 
 namespace gateway
 {
@@ -18,10 +18,10 @@ namespace gateway
         public static void Main(string[] args)
         {
             WebHost.CreateDefaultBuilder(args)
-//                .ConfigureLogging((cfg,log) =>
-//                {
-//                    log.AddDynamicConsole(cfg.Configuration.GetSection("Logging"));
-//                })
+                .ConfigureLogging((cfg,log) =>
+                {
+                    log.AddDynamicConsole(cfg.Configuration.GetSection("Logging"));
+                })
                 .ConfigureAppConfiguration(cfg => cfg.AddJsonFile("ocelot.json"))
                 .UseStartup<Startup>()
                 .Build()
