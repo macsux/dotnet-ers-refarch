@@ -1,0 +1,6 @@
+version: '3'
+services:
+  eureka:
+    image: mayan31370/spring-eureka
+    ports:
+     - "8761:8080"
